@@ -28,8 +28,8 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(repsonce) {
-  let forecast = repsonce.data.daily;
+function displayForecast(responce) {
+  let forecast = responce.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
@@ -70,7 +70,7 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayTemperature(repsonce) {
+function displayTemperature(responce) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let countryElement = document.querySelector("#country");
@@ -80,22 +80,20 @@ function displayTemperature(repsonce) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celciusTemperature = repsonce.data.temperature;
-
-  temperatureElement.innerHTML = Math.round(repsonce.data.temperature.current);
-  cityElement.innerHTML = repsonce.data.city;
-  countryElement.innerHTML = repsonce.data.country;
-  descriptionElement.innerHTML = repsonce.data.condition.description;
-  humidityElement.innerHTML = repsonce.data.temperature.humidity;
-  windSpeedElement.innerHTML = Math.round(repsonce.data.wind.speed);
-  dateElement.innerHTML = formatDate(repsonce.data.time * 1000);
+  temperatureElement.innerHTML = Math.round(responce.data.temperature.current);
+  cityElement.innerHTML = responce.data.city;
+  countryElement.innerHTML = responce.data.country;
+  descriptionElement.innerHTML = responce.data.condition.description;
+  humidityElement.innerHTML = responce.data.temperature.humidity;
+  windSpeedElement.innerHTML = Math.round(responce.data.wind.speed);
+  dateElement.innerHTML = formatDate(responce.data.time * 1000);
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${repsonce.data.condition.icon}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${responce.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", repsonce.data.condition.description);
+  iconElement.setAttribute("alt", responce.data.condition.description);
 
-  getForecast(repsonce.data.coordinates);
+  getForecast(responce.data.coordinates);
 }
 
 function search(city) {
