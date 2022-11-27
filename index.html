@@ -39,7 +39,10 @@
             </div>
           </div>
           <div class="overview">
-            <h1 id="city"></h1>
+            <h1>
+              <span id="city"></span>,
+              <span id="country"></span>
+            </h1>
             <h1 id="country"></h1>
             <ul>
               <li>Last updated at: <span id="date"></span></li>
@@ -60,13 +63,18 @@
             </div>
             <div class="col-6">
               <ul>
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind: <span id="wind-speed"></span>mph</li>
+                <li>Humidity: <span id="humidity" class="humidity"></span>%</li>
+                <li>Wind: <span id="wind-speed" class="wind-speed"></span>mph</li>
               </ul>
             </div>
           </div>
-          <div class="weather-forecast" id="forecast">
+        </div>
+        <div class="container">
+          <div class="weather-forecast-wrapper">
+            <h1 class="weekly-weather">Weekly Weather Forecast</h1>
+            <div class="weather-forecast" id="forecast">
             
+          </div>
           </div>
         </div>
         <small>

@@ -1,8 +1,13 @@
 body {
   font-family: arial, sans-serif;
+  background: linear-gradient(
+    108.1deg,
+    rgb(167, 220, 225) 11.2%,
+    rgb(217, 239, 242) 88.9%
+  );
 }
 h1 {
-  color: #878787;
+  color: #000;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -11,13 +16,14 @@ h1 {
 ul {
   margin: 0;
   padding: 0;
+  color: #6643b5;
 }
 
 li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: rgb(135, 135, 135);
+  color: #000;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -27,6 +33,16 @@ li::first-letter {
 }
 a {
   text-decoration: none;
+}
+.humidity {
+  color: #1e549f;
+}
+.wind-speed {
+  color: #1e549f;
+}
+.weekly-weather {
+  text-align: center;
+  color: #000;
 }
 .weather-app-wrapper {
   max-width: 600px;
@@ -69,8 +85,21 @@ a {
   text-decoration: none;
 }
 
+.weather-app {
+  background: #5fc9f3;
+}
+
+.weather-forecast-wrapper {
+  background: #41d8bf;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 30px;
+}
+
 .weather-forecast {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
