@@ -2,7 +2,7 @@ function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
-    hours = `0:${hours}`;
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -29,14 +29,12 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(responce) {
-  console.log(responce);
   let forecast = responce.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    console.log(forecastDay);
     if (index < 5) {
       forecastHTML =
         forecastHTML +
@@ -45,14 +43,14 @@ function displayForecast(responce) {
                 ${formatDay(forecastDay.time)}
                 </div>
                 <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-                  forecastDay.weather[0].icon
+                  forecastDay.condition.icon
                 }.png" alt="" width="42"/>
                 <div class="weather-forecast-temperatures">
                   <span class="weather-forecast-temperature-max"> 
-                    ${Math.round(forecastDay.temp.max)}°
+                    ${Math.round(forecastDay.temperature.maximum)}°
                   </span>
                   <span class="weather-forecast-temperature-min">
-                    ${Math.round(forecastDay.temp.min)}°
+                    ${Math.round(forecastDay.temperature.minimum)}°
                   </span>
                 </div>
                 
@@ -65,8 +63,8 @@ function displayForecast(responce) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "9t257307ca476845c0efc0e5f24o9bc3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayForecast);
 }
